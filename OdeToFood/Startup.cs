@@ -31,6 +31,9 @@ namespace OdeToFood
                 app.UseDeveloperExceptionPage();
             }
 
+            // will create a app.UseDefaultFiles() and app.UseStaticFiles()
+            app.UseFileServer();
+
             app.Run(async (context) =>
             {
                 var greeting = greeter.GetMessageOfTheDay();
