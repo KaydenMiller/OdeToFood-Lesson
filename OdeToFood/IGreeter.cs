@@ -1,4 +1,6 @@
-﻿namespace OdeToFood
+﻿using Microsoft.Extensions.Configuration;
+
+namespace OdeToFood
 {
     public interface IGreeter
     {
@@ -7,9 +9,16 @@
 
     public class Greeter : IGreeter
     {
+        private IConfiguration _config;
+
+        public Greeter(IConfiguration config)
+        {
+            _config = config;
+        }
+
         public string GetMessageOfTheDay()
         {
-            return "Greetings!";
+            return _config["Greeting"];
         }
     }
 }
