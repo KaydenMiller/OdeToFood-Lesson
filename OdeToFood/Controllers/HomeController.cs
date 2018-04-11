@@ -6,9 +6,12 @@ namespace OdeToFood.Controllers
     {
         public IActionResult Index()
         {
-            var model = new Models.Restaurant { Id = 1, Name = "Scott's Pizza Place" };
+            var model = new Models.Restaurant {
+                Id = 1,
+                Name = "Scott's Pizza Place"
+            };
 
-            return new ObjectResult(model);
+            return View(model);
             //return Content("Hello from the HomeController!");
         }
     }
