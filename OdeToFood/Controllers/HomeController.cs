@@ -26,5 +26,16 @@ namespace OdeToFood.Controllers
             return View(model);
             //return Content("Hello from the HomeController!");
         }
+
+        public IActionResult Details(int id)
+        {
+            var model = _restaurantData.Get(id);
+            if (model == null)
+            {
+                //return NotFound(); // This will return a 404 responce and should not be used unless making an API
+                return RedirectToAction(nameof(Index));
+            }
+            return View(model);
+        }
     }
 }
